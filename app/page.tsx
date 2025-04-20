@@ -1,0 +1,219 @@
+import Image from 'next/image';
+
+async function getHomepageTitle() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/title`, {
+      cache: 'no-store',
+    });
+
+    if (!res.ok) {
+      console.error(`Error fetching title: ${res.status} ${res.statusText}`);
+      return 'Error loading title';
+    }
+
+    const data = await res.json();
+    return data.title || 'Default Title';
+  } catch (error) {
+    console.error('Failed to fetch title:', error);
+    return 'Error loading title';
+  }
+}
+
+export default async function Home() {
+  const pageTitle = await getHomepageTitle();
+
+  return (
+    <div className="min-h-screen bg-white text-black">
+      {/* Header */}
+      <header
+        className="flex items-center justify-center border-b"
+        style={{
+          width: '1440px',
+          height: '90px',
+          padding: '30px 120px',
+          margin: '0 auto',
+          borderBottomWidth: '3px',
+          borderBottomColor: '#F4F4F5',
+        }}
+      >
+        <nav className="flex items-center space-x-6">
+          <a href="#" className="text-sm font-medium hover:text-gray-700">
+            About
+          </a>
+          <div className="relative group">
+            <button className="text-sm font-medium flex items-center hover:text-gray-700">
+              Services
+              <svg
+                className="ml-1 h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main className="px-4 relative bg-gradient-to-b from-[#FFFFFF] to-[#FFF7EC]">
+        <div className="relative">
+          <div
+            className="absolute"
+            style={{ width: '750px', height: '276px', top: '65px', left: '142px' }}
+          >
+            <h1
+              className="font-semibold leading-tight"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 600,
+                fontSize: '60px',
+                lineHeight: '68px',
+                letterSpacing: '-4px',
+              }}
+              dangerouslySetInnerHTML={{ __html: pageTitle }}
+            ></h1>
+            <div
+              className="relative"
+              style={{
+                width: '570px',
+                height: '72px',
+                top: '24px',
+                marginBottom: '24px',
+              }}
+            >
+              <p className="text-lg text-gray-600">
+                Powerful AI solutions that go beyond mere data sorting and exploration. Use our
+                array of AI-enabled solutions that understand your business and recommend the
+                optimal way forward.
+              </p>
+            </div>
+            <button
+              className="bg-[#FFBD59] hover:bg-opacity-90 text-black font-semibold py-3 px-6 rounded-md transition duration-300 mt-8"
+              style={{
+                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.08)',
+              }}
+            >
+              Get started
+            </button>
+          </div>
+
+          <div
+            className="absolute"
+            style={{
+              width: '561.19px',
+              height: '826.92px',
+              top: '3px',
+              left: '950px',
+              zIndex: 10,
+            }}
+          >
+            <Image
+              src="/images/clipart-right.png"
+              alt="Curved Lines"
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
+        </div>
+        <div className="absolute left-0 hidden lg:block" style={{ top: '-3px' }}>
+          <Image src="/images/clipart-left.png" alt="Curved Lines" width={129} height={379} />
+        </div>
+
+        {/* Spacer for hero section */}
+        <div style={{ height: '920px' }}></div>
+      </main>
+
+      {/* Features Section */}
+      <section
+        className="py-32 px-4 overflow-hidden relative"
+        style={{
+          backgroundImage: 'url(/images/bg-pattern.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div
+          className="container mx-auto relative px-4 sm:px-6 lg:px-8"
+          style={{ minHeight: '300px' }}
+        >
+          <div className="absolute left-0 right-0 top-1/2 bg-[#F5F5F5] w-full transform -translate-y-1/2 h-[8px] rounded-[100px]"></div>
+          <div className="absolute left-0 top-1/2 bg-[#34D399] w-[5%] transform -translate-y-1/2 z-10 h-[8px] rounded-[100px]"></div>
+          <div className="absolute left-[6%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+            <div className="w-[22px] h-[22px] rounded-full bg-[#EAF8F1] flex items-center justify-center">
+              <div className="w-[12px] h-[12px] bg-[#34D399] rounded-full"></div>
+            </div>
+          </div>
+          <div className="absolute left-[30%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute left-[50%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute left-[70%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute left-[97%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+
+          {/* Feature Cards */}
+          {[
+            {
+              left: '10%',
+              title: 'Multi-source data',
+              description:
+                'Our solutions work with old, new, or incomplete datasets, in different formats, and from varied sources.',
+              image: '/images/database.png',
+            },
+            {
+              left: '30%',
+              title: 'Ready to Go Algos',
+              description:
+                'We have ready accelerators embedded with learnings from hundreds of past projects, generating actionable results.',
+              image: '/images/ready.png',
+            },
+            {
+              left: '50%',
+              title: 'Stakeholder alignment',
+              description:
+                'No black boxes. Stakeholders understand the "how", "so what" and "now what", leading to clear decision-making trade-offs.',
+              image: '/images/stakeholder.png',
+            },
+            {
+              left: '70%',
+              title: 'Internal capability building',
+              description:
+                'We productize all our work, enhance them with the latest AI technology, and train your internal teams to leverage them.',
+              image: '/images/internal.png',
+            },
+            {
+              left: '90%',
+              title: 'Continuous engagement',
+              description:
+                'We engage in the long-term to enhance, course-correct, and adopt new models to continuously refine your work.',
+              image: '/images/continuous.png',
+            },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="absolute w-48 p-4"
+              style={{
+                left: feature.left,
+                top: '50%',
+                transform: `translateX(-50%) translateY(${index % 2 === 0 ? '2rem' : 'calc(-100% - 2rem)'})`,
+              }}
+            >
+              <div className="flex flex-col items-start">
+                <Image src={feature.image} alt={feature.title} width={40} height={40} />
+                <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-xs">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
