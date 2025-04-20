@@ -1,32 +1,9 @@
 <h1>Brynk Labs Hiring Assignment</h1>
 
 <h2>Project Overview</h2>
-<p>This project is a hiring assignment for Brynk Labs, implementing a responsive website for Company ABC with a Content Management System (CMS). The website consists of a pixel-perfect landing page based on a provided Figma design and a CMS page to manage the dynamic heading sentence. The project is deployed on Vercel.</p>
+<p>A hiring assignment for Brynk Labs featuring a responsive, pixel-perfect website for Company ABC with a CMS to manage the dynamic heading. Built from a Figma design and deployed on Vercel.</p>
 
-<h2>Features</h2>
-<ol>
-  <li><strong>Customer-Facing Landing Page</strong>:
-    <ul>
-      <li>Pixel-perfect implementation of the Figma design for Company ABC.</li>
-      <li>Responsive design adaptable to various screen sizes.</li>
-      <li>Dynamic heading sentence: "Hyper boost your Revenue Management, Marketing and Commercial Functions with Business Ready AI" fetched via a GET API.</li>
-      <li>All other text is static and hardcoded as per the Figma design.</li>
-    </ul>
-  </li>
-  <li><strong>CMS Page</strong>:
-    <ul>
-      <li>Custom-designed CMS page with a text field to update the main heading sentence.</li>
-      <li>Updates to the heading sentence are saved to a database via a POST API.</li>
-      <li>Changes in the CMS reflect automatically on the customer-facing page.</li>
-    </ul>
-  </li>
-  <li><strong>APIs</strong>:
-    <ul>
-      <li><strong>POST API</strong>: Saves the heading sentence from the CMS page to a database table.</li>
-      <li><strong>GET API</strong>: Retrieves the heading sentence from the database to display on the landing page.</li>
-    </ul>
-  </li>
-</ol>
+<h2>Features</h2> <ul> <li><strong>Landing Page:</strong> Responsive and pixel-perfect per Figma, with a dynamic heading fetched via GET API. All other content is static.</li> <li><strong>CMS Page:</strong> Simple UI to update the heading text, saved via POST API and reflected instantly on the site.</li> <li><strong>APIs:</strong> GET to display heading, POST to update it in the database.</li> </ul>
 
 <h2>URLs</h2>
 <ul>
