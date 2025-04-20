@@ -63,70 +63,84 @@ export default async function Home() {
       </header>
 
       {/* Hero Section */}
-      <main className="px-4 relative bg-gradient-to-b from-[#FFFFFF] to-[#FFF7EC]">
-        <div className="relative">
-          <div
-            className="absolute"
-            style={{ width: '750px', height: '276px', top: '65px', left: '142px' }}
-          >
-            <h1
-              className="font-semibold leading-tight"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: '60px',
-                lineHeight: '68px',
-                letterSpacing: '-4px',
-              }}
-              dangerouslySetInnerHTML={{ __html: pageTitle }}
-            ></h1>
-            <div
-              className="relative"
-              style={{
-                width: '570px',
-                height: '72px',
-                top: '24px',
-                marginBottom: '24px',
-              }}
-            >
-              <p className="text-lg text-gray-600">
-                Powerful AI solutions that go beyond mere data sorting and exploration. Use our
-                array of AI-enabled solutions that understand your business and recommend the
-                optimal way forward.
-              </p>
-            </div>
-            <button
-              className="bg-[#FFBD59] hover:bg-opacity-90 text-black font-semibold py-3 px-6 rounded-md transition duration-300 mt-8"
-              style={{
-                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.08)',
-              }}
-            >
-              Get started
-            </button>
-          </div>
+<main className="px-4 relative bg-gradient-to-b from-[#FFFFFF] to-[#FFF7EC]">
+  <div className="relative">
+  <div
+  className="absolute"
+  style={{ width: '750px', height: '276px', top: '65px', left: '130px' }}
+>
+  <h1
+    className="font-semibold leading-tight"
+    style={{
+      fontFamily: 'Inter, sans-serif',
+      fontWeight: 600,
+      fontSize: '60px',
+      lineHeight: '68px',
+      letterSpacing: '-4px',
+    }}
+    dangerouslySetInnerHTML={{ __html: pageTitle }}
+  ></h1>
+  <div
+    className="relative"
+    style={{
+      width: '570px',
+      height: '72px',
+      top: '32px', // Increased from 24px to add more gap below title
+      marginBottom: '24px',
+    }}
+  >
+    <p className="text-gray-600"
+      style={{
+        fontSize: '1.125rem',
+        lineHeight: '1.3',
+        color: '#4B5563'
+      }}
+    >
+      Powerful AI solutions that go beyond mere data sorting and exploration. Use our
+      array of AI-enabled solutions that understand your business and recommend the
+      optimal way forward.
+    </p>
+  </div>
+  <button
+  className="bg-[#FFBD59] hover:bg-opacity-90 text-black font-semibold transition duration-300"
+  style={{
+    width: '123.27px',
+    height: '44px',
+    borderRadius: '6px',
+    boxShadow: '0px 1px 14px 0px #0000001F',
+    marginTop: '70px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '16px'
+  }}
+>
+  Get started
+</button>
+</div>
 
-          <div
-            className="absolute"
-            style={{
-              width: '561.19px',
-              height: '826.92px',
-              top: '3px',
-              left: '950px',
-              zIndex: 10,
-            }}
-          >
-            <Image
-              src="/images/clipart-right.png"
-              alt="Curved Lines"
-              fill
-              style={{ objectFit: 'contain' }}
-              priority
-            />
-          </div>
-        </div>
-        <div className="absolute left-0 hidden lg:block" style={{ top: '-3px' }}>
-          <Image src="/images/clipart-left.png" alt="Curved Lines" width={129} height={379} />
-        </div>
+    <div
+      className="absolute"
+      style={{
+        width: '561.19px',
+        height: '826.92px',
+        top: '3px',
+        left: '850px', // Reduced from 950px to bring image closer to text
+        zIndex: 10,
+      }}
+    >
+      <Image
+        src="/images/clipart-right.png"
+        alt="Curved Lines"
+        fill
+        style={{ objectFit: 'contain' }}
+        priority
+      />
+    </div>
+  </div>
+  <div className="absolute left-0 hidden lg:block" style={{ top: '-3px' }}>
+    <Image src="/images/clipart-left.png" alt="Curved Lines" width={130} height={379} />
+  </div>
 
         {/* Spacer for hero section */}
         <div style={{ height: '920px' }}></div>
