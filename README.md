@@ -28,91 +28,11 @@
   </li>
 </ol>
 
-<h2>Tech Stack</h2>
-<ul>
-  <li><strong>Frontend</strong>: [Specify framework, e.g., React, Next.js, or vanilla HTML/CSS/JS]</li>
-  <li><strong>Backend</strong>: [Specify, e.g., Node.js, Express, or serverless functions on Vercel]</li>
-  <li><strong>Database</strong>: [Specify, e.g., PostgreSQL, MongoDB, or Vercel Storage]</li>
-  <li><strong>Deployment</strong>: Vercel</li>
-  <li><strong>Styling</strong>: [Specify, e.g., Tailwind CSS, CSS Modules, or plain CSS]</li>
-  <li><strong>API</strong>: RESTful APIs for CMS and landing page communication</li>
-</ul>
-
-<h2>Setup Instructions</h2>
-<ol>
-  <li><strong>Prerequisites</strong>:
-    <ul>
-      <li>Node.js (version [specify version, e.g., 18.x])</li>
-      <li>npm or yarn</li>
-      <li>Vercel CLI (<code>npm install -g vercel</code>)</li>
-      <li>[Any other tools, e.g., PostgreSQL if used]</li>
-    </ul>
-  </li>
-  <li><strong>Local Development</strong>:
-    <pre><code># Clone the repository
-git clone [repository-url]
-
-# Navigate to the project directory
-cd [project-directory]
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env.local
-</code></pre>
-    <p>Update <code>.env.local</code> with the necessary credentials (e.g., database URL, API keys).</p>
-    <pre><code># Run the development server
-npm run dev
-</code></pre>
-    <p>The app will be available at <code>http://localhost:3000</code>.</p>
-  </li>
-  <li><strong>Database Setup</strong>:
-    <ul>
-      <li>Configure the database connection in <code>.env.local</code>.</li>
-      <li>Run migrations (if applicable):
-        <pre><code>npm run migrate</code></pre>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Deployment</strong>:
-    <ul>
-      <li>Connect the repository to Vercel.</li>
-      <li>Set up environment variables in the Vercel dashboard.</li>
-      <li>Deploy using:
-        <pre><code>vercel --prod</code></pre>
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<h2>Project Structure</h2>
-<pre><code>├── /components    # Reusable UI components
-├── /pages         # Page components (e.g., landing page, CMS page)
-├── /api           # API routes (POST and GET APIs)
-├── /public        # Static assets (images, fonts, etc.)
-├── /styles        # CSS or styling files
-├── /lib           # Utility functions and database logic
-├── .env.local     # Environment variables
-├── README.md      # Project documentation
-</code></pre>
-
 <h2>URLs</h2>
 <ul>
   <li><strong>Main User-Facing Page</strong>: [https://brynklabs.vercel.app/]</li>
   <li><strong>CMS Page</strong>: [Insert deployed CMS URL here]</li>
 </ul>
 
-<h2>Notes</h2>
-<ul>
-  <li>The landing page is designed to be pixel-perfect as per the provided Figma design.</li>
-  <li>The CMS page design is based on the provided wireframe but includes custom styling for improved usability.</li>
-  <li>Ensure environment variables are correctly configured to avoid API or database connection issues.</li>
-  <li>The project is optimized for performance and responsiveness across devices.</li>
-</ul>
-
 <h2>About Brynk Labs</h2>
 <p>Brynk Labs is a stealth-mode startup backed by strong funding, founded by alumni from IIT and ISB with professional experience at Amazon, Livspace, Paytm, and Revolut.</p>
-
-<h2>Contact</h2>
-<p>For any queries regarding the project, please reach out to [your name/contact info, if applicable].</p>
