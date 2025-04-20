@@ -125,7 +125,7 @@ export default async function Home() {
         width: '561.19px',
         height: '826.92px',
         top: '3px',
-        left: '850px', // Reduced from 950px to bring image closer to text
+        left: '950px', // Reduced from 950px to bring image closer to text
         zIndex: 10,
       }}
     >
@@ -143,7 +143,7 @@ export default async function Home() {
   </div>
 
         {/* Spacer for hero section */}
-        <div style={{ height: '920px' }}></div>
+        <div style={{ height: '826px' }}></div>
       </main>
 
       {/* Features Section */}
