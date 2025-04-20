@@ -11,7 +11,7 @@ export default function EditTitlePage() {
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  // API URL from environment variable, matching main page
+  // API URL from environment variable matching main page
   const API_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
   // Fetch the current title when the component mounts
@@ -51,7 +51,7 @@ export default function EditTitlePage() {
     fetchTitle();
   }, [API_URL]);
 
-  // Handle form submission to save the title
+  // Handle form submission edge case
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsUpdating(true);
@@ -99,7 +99,7 @@ export default function EditTitlePage() {
     }
   };
 
-  // Handle edit button click
+  // Handle edit button click case
   const handleEdit = () => {
     setIsEditing(true);
     setMessage('');
@@ -107,7 +107,7 @@ export default function EditTitlePage() {
     console.log('Entering edit mode');
   };
 
-  // Handle cancel button click
+  // Handle cancel button click case
   const handleCancel = () => {
     setIsEditing(false);
     setNewTitle(currentTitle);

@@ -19,6 +19,7 @@ async function getHomepageTitle() {
   }
 }
 
+
 export default async function Home() {
   const pageTitle = await getHomepageTitle();
 
@@ -62,13 +63,13 @@ export default async function Home() {
         </nav>
       </header>
 
-      {/* Hero Section */}
+
+{/* HERO SECTION */}
 <main className="px-4 relative bg-gradient-to-b from-[#FFFFFF] to-[#FFF7EC]">
   <div className="relative">
   <div
   className="absolute"
-  style={{ width: '750px', height: '276px', top: '65px', left: '130px' }}
->
+  style={{ width: '750px', height: '276px', top: '65px', left: '130px' }}>
   <h1
     className="font-semibold leading-tight"
     style={{
@@ -85,7 +86,7 @@ export default async function Home() {
     style={{
       width: '570px',
       height: '72px',
-      top: '32px', // Increased from 24px to add more gap below title
+      top: '32px', 
       marginBottom: '24px',
     }}
   >
@@ -125,10 +126,11 @@ export default async function Home() {
         width: '561.19px',
         height: '826.92px',
         top: '3px',
-        left: '950px', // Reduced from 950px to bring image closer to text
-        zIndex: 10,
+        left: '950px', 
       }}
     >
+
+    {/* RIGHT- HERO IMAGE */}
       <Image
         src="/images/clipart-right.png"
         alt="Curved Lines"
@@ -142,11 +144,11 @@ export default async function Home() {
     <Image src="/images/clipart-left.png" alt="Curved Lines" width={130} height={379} />
   </div>
 
-        {/* Spacer for hero section */}
+        {/* HERO SECTION SPACER */}
         <div style={{ height: '826px' }}></div>
       </main>
 
-      {/* Features Section */}
+      {/* FEATURES */}
       <section
   className="py-32 overflow-hidden relative"
   style={{
@@ -165,10 +167,10 @@ export default async function Home() {
       margin: '0 auto'
     }}
   >
-{/* Gray background bar */}
+{/* BG BAR */}
 <div className="absolute left-0 right-0 top-1/2 bg-[#F5F5F5] w-full transform -translate-y-1/2 h-[8px] rounded-[100px]"></div>
 
-{/* Green progress bar with exact dimensions */}
+{/* PROGRESS TIMELINE BAR */}
 <div 
   className="absolute left-0 top-1/2 bg-[#34D399] transform -translate-y-1/2 z-10 rounded-[100px]" 
   style={{
@@ -178,53 +180,52 @@ export default async function Home() {
   }}
 ></div>
 
-{/* First special circle - positioned exactly at the end of progress bar */}
+{/* GREEN CIRCLES */}
 <div className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20" 
-  style={{ left: '46px' }} // Position exactly at the end of the progress bar
+  style={{ left: '46px' }} 
 >
   <div className="w-[22px] h-[22px] rounded-full bg-[#EAF8F1] flex items-center justify-center">
     <div className="w-[12px] h-[12px] bg-[#34D399] rounded-full"></div>
   </div>
 </div>
     
-    {/* Regular green circles aligned with feature cards */}
     <div className="absolute left-[27%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
     <div className="absolute left-[50%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
     <div className="absolute left-[74%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
     <div className="absolute left-[96%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 
-    {/* Feature Cards */}
+    {/* FEATURE CARDS */}
 {[
   {
-    left: '10%', // Keep as is for Multi-source data
+    left: '10%',
     title: 'Multi-source data',
     description:
       'Our solutions work with old, new, or incomplete datasets, in different formats, and from varied sources.',
     image: '/images/database.png',
   },
   {
-    left: '27%', // Updated to align with second green circle (was 30%)
+    left: '27%', 
     title: 'Ready to Go Algos',
     description:
       'We have ready accelerators embedded with learnings from hundreds of past projects, generating actionable results.',
     image: '/images/ready.png',
   },
   {
-    left: '50%', // Keep as is
+    left: '50%', 
     title: 'Stakeholder alignment',
     description:
       'No black boxes. Stakeholders understand the "how", "so what" and "now what", leading to clear decision-making trade-offs.',
     image: '/images/stakeholder.png',
   },
   {
-    left: '74%', // Updated to align with fourth green circle (was 70%)
+    left: '74%', 
     title: 'Internal capability building',
     description:
       'We productize all our work, enhance them with the latest AI technology, and train your internal teams to leverage them.',
     image: '/images/internal.png',
   },
   {
-    left: '90%', // Keep as is for Continuous engagement
+    left: '90%', 
     title: 'Continuous engagement',
     description:
       'We engage in the long-term to enhance, course-correct, and adopt new models to continuously refine your work.',
