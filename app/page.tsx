@@ -134,86 +134,144 @@ export default async function Home() {
 
       {/* Features Section */}
       <section
-        className="py-32 px-4 overflow-hidden relative"
+  className="py-32 overflow-hidden relative"
+  style={{
+    backgroundImage: 'url(/images/bg-pattern.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    backgroundPosition: 'center',
+    padding: '128px 120px', 
+  }}
+>
+  <div
+    className="container mx-auto relative"
+    style={{ 
+      minHeight: '300px',
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }}
+  >
+{/* Gray background bar */}
+<div className="absolute left-0 right-0 top-1/2 bg-[#F5F5F5] w-full transform -translate-y-1/2 h-[8px] rounded-[100px]"></div>
+
+{/* Green progress bar with exact dimensions */}
+<div 
+  className="absolute left-0 top-1/2 bg-[#34D399] transform -translate-y-1/2 z-10 rounded-[100px]" 
+  style={{
+    width: '46px',
+    height: '8px',
+    borderRadius: '100px'
+  }}
+></div>
+
+{/* First special circle - positioned exactly at the end of progress bar */}
+<div className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20" 
+  style={{ left: '46px' }} // Position exactly at the end of the progress bar
+>
+  <div className="w-[22px] h-[22px] rounded-full bg-[#EAF8F1] flex items-center justify-center">
+    <div className="w-[12px] h-[12px] bg-[#34D399] rounded-full"></div>
+  </div>
+</div>
+    
+    {/* Regular green circles aligned with feature cards */}
+    <div className="absolute left-[27%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div className="absolute left-[50%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div className="absolute left-[74%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div className="absolute left-[96%] w-[16px] h-[16px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+
+    {/* Feature Cards */}
+{[
+  {
+    left: '10%', // Keep as is for Multi-source data
+    title: 'Multi-source data',
+    description:
+      'Our solutions work with old, new, or incomplete datasets, in different formats, and from varied sources.',
+    image: '/images/database.png',
+  },
+  {
+    left: '27%', // Updated to align with second green circle (was 30%)
+    title: 'Ready to Go Algos',
+    description:
+      'We have ready accelerators embedded with learnings from hundreds of past projects, generating actionable results.',
+    image: '/images/ready.png',
+  },
+  {
+    left: '50%', // Keep as is
+    title: 'Stakeholder alignment',
+    description:
+      'No black boxes. Stakeholders understand the "how", "so what" and "now what", leading to clear decision-making trade-offs.',
+    image: '/images/stakeholder.png',
+  },
+  {
+    left: '74%', // Updated to align with fourth green circle (was 70%)
+    title: 'Internal capability building',
+    description:
+      'We productize all our work, enhance them with the latest AI technology, and train your internal teams to leverage them.',
+    image: '/images/internal.png',
+  },
+  {
+    left: '90%', // Keep as is for Continuous engagement
+    title: 'Continuous engagement',
+    description:
+      'We engage in the long-term to enhance, course-correct, and adopt new models to continuously refine your work.',
+    image: '/images/continuous.png',
+  },
+    ].map((feature, index) => (
+      <div
+        key={index}
+        className="absolute"
         style={{
-          backgroundImage: 'url(/images/bg-pattern.png)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          left: feature.left,
+          top: '50%',
+          width: '192px',
+          transform: `translateX(-50%) translateY(${index % 2 === 0 ? '3rem' : 'calc(-100% - 3rem)'})`,
         }}
       >
-        <div
-          className="container mx-auto relative px-4 sm:px-6 lg:px-8"
-          style={{ minHeight: '300px' }}
-        >
-          <div className="absolute left-0 right-0 top-1/2 bg-[#F5F5F5] w-full transform -translate-y-1/2 h-[8px] rounded-[100px]"></div>
-          <div className="absolute left-0 top-1/2 bg-[#34D399] w-[5%] transform -translate-y-1/2 z-10 h-[8px] rounded-[100px]"></div>
-          <div className="absolute left-[6%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="w-[22px] h-[22px] rounded-full bg-[#EAF8F1] flex items-center justify-center">
-              <div className="w-[12px] h-[12px] bg-[#34D399] rounded-full"></div>
-            </div>
-          </div>
-          <div className="absolute left-[30%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute left-[50%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute left-[70%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute left-[97%] w-[18px] h-[18px] bg-[#34D399] rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-
-          {/* Feature Cards */}
-          {[
-            {
-              left: '10%',
-              title: 'Multi-source data',
-              description:
-                'Our solutions work with old, new, or incomplete datasets, in different formats, and from varied sources.',
-              image: '/images/database.png',
-            },
-            {
-              left: '30%',
-              title: 'Ready to Go Algos',
-              description:
-                'We have ready accelerators embedded with learnings from hundreds of past projects, generating actionable results.',
-              image: '/images/ready.png',
-            },
-            {
-              left: '50%',
-              title: 'Stakeholder alignment',
-              description:
-                'No black boxes. Stakeholders understand the "how", "so what" and "now what", leading to clear decision-making trade-offs.',
-              image: '/images/stakeholder.png',
-            },
-            {
-              left: '70%',
-              title: 'Internal capability building',
-              description:
-                'We productize all our work, enhance them with the latest AI technology, and train your internal teams to leverage them.',
-              image: '/images/internal.png',
-            },
-            {
-              left: '90%',
-              title: 'Continuous engagement',
-              description:
-                'We engage in the long-term to enhance, course-correct, and adopt new models to continuously refine your work.',
-              image: '/images/continuous.png',
-            },
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className="absolute w-48 p-4"
-              style={{
-                left: feature.left,
-                top: '50%',
-                transform: `translateX(-50%) translateY(${index % 2 === 0 ? '2rem' : 'calc(-100% - 2rem)'})`,
-              }}
-            >
-              <div className="flex flex-col items-start">
-                <Image src={feature.image} alt={feature.title} width={40} height={40} />
-                <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-xs">{feature.description}</p>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col items-start">
+          <Image 
+            src={feature.image} 
+            alt={feature.title} 
+            width={32} 
+            height={32} 
+          />
+          <h3 
+            style={{
+              width: '192px',
+              height: '19px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: '16px',
+              lineHeight: '120%',
+              letterSpacing: '0%',
+              verticalAlign: 'middle',
+              marginBottom: feature.title === 'Internal capability building' ? '25px' : '8px', 
+              marginTop: '12px'
+            }}
+          >
+            {feature.title}
+          </h3>
+          <p 
+            style={{
+              width: '192px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 400,
+              fontSize: '14px',
+              lineHeight: '140%',
+              letterSpacing: '0%',
+              verticalAlign: 'middle',
+              color: '#999999'
+            }}
+          >
+            {feature.description}
+          </p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+
     </div>
   );
 }
