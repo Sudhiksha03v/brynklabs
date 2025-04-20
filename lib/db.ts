@@ -1,41 +1,52 @@
-import Database from 'better-sqlite3';
-import path from 'path';
-import fs from 'fs';
+import { sql } from '@vercel/postgres';
 
-const dbPath = path.resolve(process.cwd(), 'data');
-const dbFile = path.join(dbPath, 'content.db');
+// Vercel Postgres automatically uses environment variables for connection details
+// (POSTGRES_URL, POSTGRES_DATABASE, POSTGRES_USER, POSTGRES_PASSWORD, etc.)
 
-// Ensure the data directory exists
-if (!fs.existsSync(dbPath)) {
-  fs.mkdirSync(dbPath, { recursive: true });
+// Function to ensure the settings table exists
+
+async function ensureTableExists() {
+  try {
+    await sql`
+      CREATE TABLE IF NOT EXISTS settings (
+        key TEXT PRIMARY KEY,
+        value TEXT
+      );
+    `;
+  } catch (error) {
+    console.error('Error ensuring settings table exists:', error);
+  }
 }
 
-const db = new Database(dbFile);
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS settings (
-    key TEXT PRIMARY KEY,
-    value TEXT
-  )
-`);
+const tableCheckPromise = ensureTableExists();
 
-export function getSetting(key: string): string | null {
-  const stmt = db.prepare('SELECT value FROM settings WHERE key = ?');
-  const result = stmt.get(key) as { value: string } | undefined;
-  return result ? result.value : null;
+export async function getSetting(key: string): Promise<string | null> {
+  await tableCheckPromise;
+  try {
+    const { rows } = await sql<{ value: string }>`
+      SELECT value FROM settings WHERE key = ${key};
+    `;
+    return rows.length > 0 ? rows[0].value : null;
+  } catch (error) {
+    console.error(`Error getting setting for key "${key}":`, error);
+    
+    return null;
+  }
 }
 
-export function setSetting(key: string, value: string): void {
-  const stmt = db.prepare('INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)');
-  stmt.run(key, value);
+export async function setSetting(key: string, value: string): Promise<void> {
+  await tableCheckPromise; 
+  try {
+    await sql`
+      INSERT INTO settings (key, value)
+      VALUES (${key}, ${value})
+      ON CONFLICT (key)
+      DO UPDATE SET value = EXCLUDED.value;
+    `;
+  } catch (error) {
+    console.error(`Error setting setting for key "${key}":`, error);
+ 
+    throw error; 
+  }
 }
-
-// Seed initial title if it doesn't exist
-const initialTitleKey = 'homepageTitle';
-const currentTitle = getSetting(initialTitleKey);
-if (currentTitle === null) {
-  // Use inline styles matching the original hardcoded version in app/page.tsx
-  const defaultTitle = 'Hyper boost your <span style="color: #FFBD59;">Revenue<br/>Management</span><span style="color: #FFBD59;">,</span> <span style="color: #FFBD59;">Marketing</span> and<br/>Commercial Functions with<br/>Business Ready AI';
-  setSetting(initialTitleKey, defaultTitle);
-  console.log(`Initialized database with default title for key: ${initialTitleKey}`);
-} 

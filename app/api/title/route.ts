@@ -6,7 +6,7 @@ const TITLE_KEY = 'homepageTitle';
 // Handler for GET requests to fetch the title
 export async function GET() {
   try {
-    const title = getSetting(TITLE_KEY);
+    const title = await getSetting(TITLE_KEY);
     if (title === null) {
       // This shouldn't happen if seeding worked, but handle it just in case
       return NextResponse.json({ error: 'Title not found' }, { status: 404 });
@@ -27,7 +27,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'Invalid title provided' }, { status: 400 });
     }
 
-    setSetting(TITLE_KEY, title);
+    await setSetting(TITLE_KEY, title);
     return NextResponse.json({ message: 'Title updated successfully', title });
 
   } catch (error) {

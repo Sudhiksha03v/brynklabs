@@ -1,8 +1,18 @@
 import Image from 'next/image';
 
 async function getHomepageTitle() {
+  // Ensure NEXT_PUBLIC_APP_URL is set in your environment variables
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+  if (!baseUrl) {
+    console.error('Error: NEXT_PUBLIC_APP_URL environment variable is not set.');
+    return 'Error: App URL not configured';
+  }
+
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/title`, {
+    // Construct the full API URL
+    const apiUrl = `${baseUrl}/api/title`; 
+
+    const res = await fetch(apiUrl, {
       cache: 'no-store',
     });
 
