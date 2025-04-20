@@ -12,4 +12,4 @@
 </ul>
 
 <h2>About Brynk Labs</h2>
-<p>Brynk Labs is a stealth-mode startup backed by strong funding, founded by alumni from IIT and ISB with professional experience at Amazon, Livspace, Paytm, and Revolut.</p>
+<p>Brynk Labs is a startup (currently in stealth) backed by strong funding, founded by alumni from IIT and ISB with professional experience at Amazon, Livspace, Paytm, and Revolut.</p>
