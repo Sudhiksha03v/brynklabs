@@ -31,7 +31,7 @@
 <h2>URLs</h2>
 <ul>
   <li><strong>Main User-Facing Page</strong>: [https://brynklabs.vercel.app/]</li>
-  <li><strong>CMS Page</strong>: [Insert deployed CMS URL here]</li>
+  <li><strong>CMS Page</strong>: [https://brynklabs.vercel.app/admin/edit-title]</li>
 </ul>
 
 <h2>About Brynk Labs</h2>
